@@ -35,4 +35,4 @@ yarn-error.*
 *.tsbuildinfo
 
 # files
-directives.ts
+# directives.ts
