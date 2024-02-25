@@ -1,8 +1,40 @@
 import { StyleSheet, Text, Pressable, View } from "react-native";
 
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+
 // Pressable component is a core component wrapper that can detect various stages of interactions, from basic single-tap events to advanced events such as a long press
 
-export default function Button({ label }) {
+export default function Button({ label, theme }) {
+    if (theme === "primary") {
+        // Using inline styles allows overriding the default styles for a specific value
+        return (
+            <View
+                style={[
+                    styles.buttonContainer,
+                    {
+                        borderWidth: 4,
+                        borderColor: "#ffd33d",
+                        borderRadius: 18,
+                    },
+                ]}
+            >
+                <Pressable
+                    style={[styles.button, { backgroundColor: "#fff" }]}
+                    onPress={() => alert("You pressed a button.")}
+                >
+                    <FontAwesome
+                        name="picture-o"
+                        size={18}
+                        color="#25292e"
+                        style={styles.buttonIcon}
+                    />
+                    <Text style={[styles.buttonLabel, { color: "#25292e" }]}>
+                        {label}
+                    </Text>
+                </Pressable>
+            </View>
+        );
+    }
     return (
         <View style={styles.buttonContainer}>
             <Pressable
