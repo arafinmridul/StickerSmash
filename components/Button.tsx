@@ -4,7 +4,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 // Pressable component is a core component wrapper that can detect various stages of interactions, from basic single-tap events to advanced events such as a long press
 
-export default function Button({ label, theme }) {
+export default function Button({ label, theme, onPress }) {
     if (theme === "primary") {
         // Using inline styles allows overriding the default styles for a specific value
         return (
@@ -20,7 +20,7 @@ export default function Button({ label, theme }) {
             >
                 <Pressable
                     style={[styles.button, { backgroundColor: "#fff" }]}
-                    onPress={() => alert("You pressed a button.")}
+                    onPress={onPress}
                 >
                     <FontAwesome
                         name="picture-o"
